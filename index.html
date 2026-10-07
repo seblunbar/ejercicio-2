@@ -12,7 +12,6 @@
       init: function () {
         const el = this.el;
         el.classList.add('clickable');
-
         el.addEventListener('click', function () {
           const soundComponent = el.components.sound;
           if (soundComponent) {
@@ -37,8 +36,7 @@
 
     <a-assets timeout="10000">
       <a-asset-item id="ars" src="autonomous_robot_sweeper.glb"></a-asset-item>
-      <!-- Se reemplazó el espacio en el nombre por %20 para evitar errores de carga -->
-      <audio id="musica" src="Invierno_Allegro_estilo_Vivaldi%201.mp3" preload="auto"></audio>
+      <audio id="musica" src="Invierno_Allegro_estilo_Vivaldi 1.mp3" preload="auto"></audio>
     </a-assets>
 
     <a-entity camera look-controls wasd-controls position="0 1.6 0">
