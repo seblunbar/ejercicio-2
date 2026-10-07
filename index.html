@@ -12,18 +12,8 @@
       init: function () {
         const el = this.el;
         el.classList.add('clickable');
-
         el.addEventListener('click', function () {
           const soundComponent = el.components.sound;
-          
-          if (soundComponent) {
-            // Reproducir o pausar si ya está sonar
-            if (soundComponent.isPlaying) {
-              soundComponent.pauseSound();
-            } else {
-              soundComponent.playSound();
-            }
-          }
         });
       }
     });
@@ -39,11 +29,10 @@
 
     <a-assets timeout="10000">
       <a-asset-item id="ars" src="autonomous_robot_sweeper.glb"></a-asset-item>
-      <!-- Definición del archivo de audio en los assets -->
       <audio id="musica" src="Invierno_Allegro_estilo_Vivaldi 1.mp3" preload="auto"></audio>
     </a-assets>
 
-    <a-entity camera look-controls position="0 1.6 0">
+    <a-entity camera look-controls wasd-controls position="0 1.6 0">
       <a-entity cursor="fuse: false" position="0 0 -1" raycaster="objects: .clickable"></a-entity>
     </a-entity>
 
