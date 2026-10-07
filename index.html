@@ -12,8 +12,16 @@
       init: function () {
         const el = this.el;
         el.classList.add('clickable');
+
         el.addEventListener('click', function () {
           const soundComponent = el.components.sound;
+          if (soundComponent) {
+            if (soundComponent.isPlaying) {
+              soundComponent.pauseSound();
+            } else {
+              soundComponent.playSound();
+            }
+          }
         });
       }
     });
@@ -29,27 +37,9 @@
 
     <a-assets timeout="10000">
       <a-asset-item id="ars" src="autonomous_robot_sweeper.glb"></a-asset-item>
-      <audio id="musica" src="Invierno_Allegro_estilo_Vivaldi 1.mp3" preload="auto"></audio>
+      <!-- Se reemplazó el espacio en el nombre por %20 para evitar errores de carga -->
+      <audio id="musica" src="Invierno_Allegro_estilo_Vivaldi%201.mp3" preload="auto"></audio>
     </a-assets>
 
     <a-entity camera look-controls wasd-controls position="0 1.6 0">
-      <a-entity cursor="fuse: false" position="0 0 -1" raycaster="objects: .clickable"></a-entity>
-    </a-entity>
-
-    <a-entity
-      gltf-model="#ars"
-      animation-mixer="clip: *; loop: repeat"
-      position="0 1.5 -8"
-      scale="0.5 0.5 0.5"
-      rotation="0 180 0"
-      play-music-on-click
-      sound="src: #musica; autoplay: false; on: null">
-    </a-entity>
-
-    <a-light type="ambient" intensity="0.9"></a-light>
-    <a-light type="directional" intensity="0.6" position="1 3 2"></a-light>
-
-  </a-scene>
-
-</body>
-</html>
+      <a-entity cursor="fuse: false" position="0
